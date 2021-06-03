@@ -21,6 +21,9 @@ interface StoreModel {
 
     selectedIcon: IconDefinition | undefined;
     setSelectedIcon: Action<StoreModel, IconDefinition | undefined>;
+
+    customImageUrl: string;
+    setCustomImageUrl: Action<StoreModel, string>;
 }
 
 export const store = createStore<StoreModel>({
@@ -53,6 +56,11 @@ export const store = createStore<StoreModel>({
     setSelectedIcon: action((state, payload) => {
         state.selectedIcon = payload;
     }),
+
+    customImageUrl: "",
+    setCustomImageUrl: action((state, payload) => {
+        state.customImageUrl = payload;
+    })
 });
 
 const typedHooks = createTypedHooks<StoreModel>();

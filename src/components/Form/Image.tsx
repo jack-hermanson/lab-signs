@@ -27,6 +27,9 @@ export const Image: React.FC = () => {
     const selectedIcon = useStoreState(state => state.selectedIcon);
     const setSelectedIcon = useStoreActions(actions => actions.setSelectedIcon);
 
+    const customImageUrl = useStoreState(state => state.customImageUrl);
+    const setCustomImageUrl = useStoreActions(actions => actions.setCustomImageUrl);
+
     const iconOptions = [
         faIdCardAlt, faBullhorn, faCalendarAlt, faChalkboardTeacher, faCommentDots,
         faDesktop, faLaptop, faUser, faDoorClosed, faDoorOpen, faEnvelope,
@@ -121,7 +124,13 @@ export const Image: React.FC = () => {
                         [Use icon]
                     </a>
                 </Label>
-                <Input className="mb-3" type="url" id={id}/>
+                <Input
+                    className="mb-3"
+                    type="url"
+                    id={id}
+                    value={customImageUrl}
+                    onChange={e => setCustomImageUrl(e.target.value)}
+                />
             </Col>
         )
     }
