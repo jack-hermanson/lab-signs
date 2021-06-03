@@ -30,6 +30,9 @@ export const Image: React.FC = () => {
     const customImageUrl = useStoreState(state => state.customImageUrl);
     const setCustomImageUrl = useStoreActions(actions => actions.setCustomImageUrl);
 
+    const imageSize = useStoreState(state => state.imageSize);
+    const setImageSize = useStoreActions(actions => actions.setImageSize);
+
     const iconOptions = [
         faIdCardAlt, faBullhorn, faCalendarAlt, faChalkboardTeacher, faCommentDots,
         faDesktop, faLaptop, faUser, faDoorClosed, faDoorOpen, faEnvelope,
@@ -101,8 +104,18 @@ export const Image: React.FC = () => {
         const id = "image-size-input";
         return (
             <Col>
-                <Label className="form-label" for={id}>Size</Label>
-                <Input id={id} type="range" min={0} max={100}/>
+                <Label className="form-label" for={id}>Size ({imageSize}%)</Label>
+                <Input
+                    value={imageSize}
+                    id={id}
+                    type="range"
+                    min={0}
+                    max={100}
+                    onChange={e => {
+                        const size: number = parseInt(e.target.value);
+                        setImageSize(size);
+                    }}
+                />
             </Col>
         )
     }

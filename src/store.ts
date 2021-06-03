@@ -24,6 +24,9 @@ interface StoreModel {
 
     customImageUrl: string;
     setCustomImageUrl: Action<StoreModel, string>;
+
+    imageSize: number;
+    setImageSize: Action<StoreModel, number>;
 }
 
 export const store = createStore<StoreModel>({
@@ -60,7 +63,12 @@ export const store = createStore<StoreModel>({
     customImageUrl: "",
     setCustomImageUrl: action((state, payload) => {
         state.customImageUrl = payload;
-    })
+    }),
+
+    imageSize: 50,
+    setImageSize: action((state, payload) => {
+        state.imageSize = payload;
+    }),
 });
 
 const typedHooks = createTypedHooks<StoreModel>();
