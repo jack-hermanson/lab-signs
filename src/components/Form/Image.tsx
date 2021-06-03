@@ -24,9 +24,18 @@ export const Image: React.FC = () => {
     const showUrlInput = useStoreState(state => state.useCustomImage);
     const setShowUrlInput = useStoreActions(actions => actions.setUseCustomImage);
 
+    const selectedIcon = useStoreState(state => state.selectedIcon);
+    const setSelectedIcon = useStoreActions(actions => actions.setSelectedIcon);
+
+    const iconOptions = [
+        faIdCardAlt, faBullhorn, faCalendarAlt, faChalkboardTeacher, faCommentDots,
+        faDesktop, faLaptop, faUser, faDoorClosed, faDoorOpen, faEnvelope,
+        faExclamationTriangle, faFile, faPrint, faTimes, faQuestion
+    ]
+
     return (
         <FormGroup>
-            <FormSectionTitle title="Image" />
+            <FormSectionTitle title="Image"/>
             <Row>
                 {showUrlInput ? (
                     renderImageUrl()
@@ -59,29 +68,28 @@ export const Image: React.FC = () => {
                 </Label>
                 <Row>
                     <Col>
-                        <ul className="icon-options rounded mb-1">
-                            <li><FA icon={faIdCardAlt} /></li>
-                            <li><FA icon={faBullhorn} /></li>
-                            <li><FA icon={faCalendarAlt} /></li>
-                            <li><FA icon={faChalkboardTeacher} /></li>
-                            <li><FA icon={faCommentDots} /></li>
-                            <li><FA icon={faDesktop} /></li>
-                            <li><FA icon={faLaptop} /></li>
-                            <li><FA icon={faUser} /></li>
-                        </ul>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <ul className="icon-options rounded">
-                            <li><FA icon={faDoorClosed} /></li>
-                            <li><FA icon={faDoorOpen} /></li>
-                            <li><FA icon={faEnvelope} /></li>
-                            <li><FA icon={faExclamationTriangle} /></li>
-                            <li><FA icon={faFile} /></li>
-                            <li><FA icon={faPrint} /></li>
-                            <li><FA icon={faTimes} /></li>
-                            <li><FA icon={faQuestion} /></li>
+                        <ul className="icon-options rounded mb-3">
+                            {iconOptions.map((icon, index) => {
+                                let active = icon.iconName === selectedIcon?.iconName;
+                                return (
+                                    <li
+                                        onClick={() => {
+                                            console.log({icon});
+                                            console.log({selectedIcon});
+                                            if (active) {
+                                                setSelectedIcon(undefined);
+                                            } else {
+                                                setSelectedIcon(icon);
+                                            }
+                                        }}
+                                        key={index}
+                                        className={active ? "active" : ""}
+                                    >
+                                        <FA icon={icon} />
+                                    </li>
+                                )
+                            })}
+
                         </ul>
                     </Col>
                 </Row>
@@ -90,11 +98,11 @@ export const Image: React.FC = () => {
     }
 
     function renderSize() {
-        const id="image-size-input";
+        const id = "image-size-input";
         return (
             <Col>
                 <Label className="form-label" for={id}>Size</Label>
-                <Input id={id} type="range" min={0} max={100} />
+                <Input id={id} type="range" min={0} max={100}/>
             </Col>
         )
     }
@@ -116,7 +124,7 @@ export const Image: React.FC = () => {
                         [Use icon]
                     </a>
                 </Label>
-                <Input className="mb-3" type="url" id={id} />
+                <Input className="mb-3" type="url" id={id}/>
             </Col>
         )
     }

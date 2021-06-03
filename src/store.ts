@@ -1,6 +1,7 @@
 import {createStore, createTypedHooks, action, Action} from "easy-peasy";
 import {LogoPlacement} from "./models/LogoPlacement";
 import {ImagePlacement} from "./models/ImagePlacement";
+import {IconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 interface StoreModel {
     logoPlacement: LogoPlacement;
@@ -17,6 +18,9 @@ interface StoreModel {
 
     useCustomImage: boolean;
     setUseCustomImage: Action<StoreModel, boolean>;
+
+    selectedIcon: IconDefinition | undefined;
+    setSelectedIcon: Action<StoreModel, IconDefinition | undefined>;
 }
 
 export const store = createStore<StoreModel>({
@@ -43,6 +47,11 @@ export const store = createStore<StoreModel>({
     useCustomImage: false,
     setUseCustomImage: action((state, payload) => {
         state.useCustomImage = payload;
+    }),
+
+    selectedIcon: undefined,
+    setSelectedIcon: action((state, payload) => {
+        state.selectedIcon = payload;
     }),
 });
 

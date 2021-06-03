@@ -9,22 +9,36 @@
   ul.icon-options {
     padding: 0;
     list-style: none;
-    display: flex;
-    flex-flow: row;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     border: 1px solid $gray-400;
+
     li {
       width: 100%;
       text-align: center;
       padding: 0.25rem 0.75rem;
       font-size: large;
       border-left: 1px solid $gray-400;
-      &:first-of-type {
+      line-height: 1;
+      border-bottom: 1px solid $gray-400;
+
+      &:nth-of-type(1), &:nth-of-type(9) {
         border-left: none;
       }
-      &:hover, .active {
-        cursor: pointer;
+
+      &:nth-of-type(9), &:nth-of-type(10), &:nth-of-type(11), &:nth-of-type(12),
+      &:nth-of-type(13), &:nth-of-type(14), &:nth-of-type(15), &:nth-of-type(16) {
+        border-bottom: none;
+      }
+
+      &:hover, &.active {
         background-color: $gold;
         color: white;
+      }
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }
