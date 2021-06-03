@@ -74,8 +74,6 @@ export const Image: React.FC = () => {
                                 return (
                                     <li
                                         onClick={() => {
-                                            console.log({icon});
-                                            console.log({selectedIcon});
                                             if (active) {
                                                 setSelectedIcon(undefined);
                                             } else {
@@ -87,9 +85,8 @@ export const Image: React.FC = () => {
                                     >
                                         <FA icon={icon} />
                                     </li>
-                                )
+                                );
                             })}
-
                         </ul>
                     </Col>
                 </Row>

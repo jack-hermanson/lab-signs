@@ -37,6 +37,10 @@
         color: white;
       }
 
+      &:active {
+        background-color: $primary;
+      }
+
       &:hover {
         cursor: pointer;
       }

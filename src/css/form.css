@@ -55,6 +55,9 @@
   background-color: #C8C372;
   color: white;
 }
+#form ul.icon-options li:active {
+  background-color: #1e4d2b;
+}
 #form ul.icon-options li:hover {
   cursor: pointer;
 }
