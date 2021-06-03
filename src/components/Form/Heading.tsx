@@ -25,7 +25,6 @@ export const Heading: React.FC = () => {
     }
 
     function renderFontSize() {
-        const id = "title-font-size-input";
         return (
             <Col>
                 <FontSizeInput id="title-font-size-input" min={18} max={36} />
