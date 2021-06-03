@@ -1,9 +1,10 @@
 import React from "react";
 import "../../css/form.css";
-import {Col, Container, Row} from "reactstrap";
+import {Button, Col, Container, Row} from "reactstrap";
 import {Orientation} from "./Orientation";
 import {Heading} from "./Heading";
 import {Image} from "./Image";
+import {Body} from "./Body";
 
 export const FormContainer: React.FC = () => {
     return (
@@ -20,6 +21,15 @@ export const FormContainer: React.FC = () => {
                             <Orientation />
                             <Heading />
                             <Image />
+                            <Body />
+                            <Row className="mt-4">
+                                <Col>
+                                    <div className="bottom-buttons">
+                                        <Button type="submit" color="primary">Save</Button>
+                                        <Button type="reset" color="secondary">Reset</Button>
+                                    </div>
+                                </Col>
+                            </Row>
                         </form>
                     </Col>
                 </Row>

@@ -29,6 +29,12 @@
     }
   }
 
+  .bottom-buttons {
+    .btn:not(last-of-type) {
+      margin-right: 0.5rem;
+    }
+  }
+
   @import "../../node_modules/bootstrap/scss/bootstrap";
 }
 
