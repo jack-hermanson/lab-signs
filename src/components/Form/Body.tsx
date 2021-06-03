@@ -32,7 +32,13 @@ export const Body: React.FC = () => {
     function renderFontSize() {
         return (
             <Col>
-                <FontSizeInput id="subheading-font-size-input" min={14} max={24} />
+                <FontSizeInput
+                    id="subheading-font-size-input"
+                    min={14}
+                    max={24}
+                    value={20}
+                    set={e => {}}
+                />
             </Col>
         );
     }

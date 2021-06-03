@@ -8,6 +8,12 @@ interface StoreModel {
 
     imagePlacement: ImagePlacement;
     setImagePlacement: Action<StoreModel, ImagePlacement>;
+
+    title: string;
+    setTitle: Action<StoreModel, string>;
+
+    titleFontSize: number;
+    setTitleFontSize: Action<StoreModel, number>;
 }
 
 export const store = createStore<StoreModel>({
@@ -20,6 +26,17 @@ export const store = createStore<StoreModel>({
     setImagePlacement: action((state, payload) => {
         state.imagePlacement = payload;
     }),
+
+    title: "",
+    setTitle: action((state, payload) => {
+        state.title = payload;
+    }),
+
+    titleFontSize: 27,
+    setTitleFontSize: action((state, payload) => {
+        state.titleFontSize = payload;
+    }),
+
 });
 
 const typedHooks = createTypedHooks<StoreModel>();
