@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {
     faBullhorn,
     faCalendarAlt,
@@ -17,10 +17,12 @@ import {
 import {FontAwesomeIcon as FA} from "@fortawesome/react-fontawesome";
 import {Col, FormGroup, Row, Label, Input} from "reactstrap";
 import {FormSectionTitle} from "./FormSectionTitle";
+import {useStoreActions, useStoreState} from "../../store";
 
 export const Image: React.FC = () => {
 
-    const [showUrlInput, setShowUrlInput] = useState(false);
+    const showUrlInput = useStoreState(state => state.useCustomImage);
+    const setShowUrlInput = useStoreActions(actions => actions.setUseCustomImage);
 
     return (
         <FormGroup>
@@ -43,8 +45,9 @@ export const Image: React.FC = () => {
                     Icon
                     <a
                         className="small ms-2"
-                        href="#"
-                        onClick={() => {
+                        href="/"
+                        onClick={(e) => {
+                            e.preventDefault();
                             setShowUrlInput(true);
                             setTimeout(() => {
                                 document.getElementById("image-url-input")?.focus();
@@ -104,8 +107,11 @@ export const Image: React.FC = () => {
                     Image URL
                     <a
                         className="small ms-2"
-                        href="#"
-                        onClick={() => setShowUrlInput(false)}
+                        href="/"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setShowUrlInput(false);
+                        }}
                     >
                         [Use icon]
                     </a>

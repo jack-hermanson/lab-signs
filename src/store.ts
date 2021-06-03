@@ -14,6 +14,9 @@ interface StoreModel {
 
     titleFontSize: number;
     setTitleFontSize: Action<StoreModel, number>;
+
+    useCustomImage: boolean;
+    setUseCustomImage: Action<StoreModel, boolean>;
 }
 
 export const store = createStore<StoreModel>({
@@ -37,6 +40,10 @@ export const store = createStore<StoreModel>({
         state.titleFontSize = payload;
     }),
 
+    useCustomImage: false,
+    setUseCustomImage: action((state, payload) => {
+        state.useCustomImage = payload;
+    }),
 });
 
 const typedHooks = createTypedHooks<StoreModel>();
