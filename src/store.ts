@@ -33,6 +33,9 @@ interface StoreModel {
 
     subheadingFontSize: number;
     setSubheadingFontSize: Action<StoreModel, number>;
+
+    bodyParagraph: string;
+    setBodyParagraph: Action<StoreModel, string>;
 }
 
 export const store = createStore<StoreModel>({
@@ -84,6 +87,11 @@ export const store = createStore<StoreModel>({
     subheadingFontSize: 19,
     setSubheadingFontSize: action((state, payload) => {
         state.subheadingFontSize = payload;
+    }),
+
+    bodyParagraph: "",
+    setBodyParagraph: action((state, payload) => {
+        state.bodyParagraph = payload;
     })
 
 });
