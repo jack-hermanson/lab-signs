@@ -76,7 +76,7 @@ export const SignPreview: React.FC = () => {
                 <div style={{
                     display: "flex",
                     justifyContent: logoPlacement,
-                    marginBottom: "2rem"
+                    marginBottom: "1.6rem"
                 }}>
                     {useCustomImage && customImageUrl.length ? (
                         <img
