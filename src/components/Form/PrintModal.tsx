@@ -37,7 +37,9 @@ export const PrintModal: React.FC<Props> = ({isOpen, setIsOpen}: Props) => {
 
     function print() {
         setIsOpen(false);
-        window.print();
+        setTimeout(() => {
+            window.print();
+        }, 500);
     }
 
 }
