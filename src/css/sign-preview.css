@@ -80,11 +80,11 @@
 
 .college-name {
   margin-top: auto;
-  margin-bottom: 0.5in;
+  margin-bottom: 0.6in;
 }
 @media print {
   .college-name {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 }
 .college-name .chhs-text {
@@ -107,6 +107,7 @@
 .sign-title {
   margin-bottom: 1.6rem;
   margin-top: 0.5in;
+  font-weight: 700;
 }
 @media print {
   .sign-title {

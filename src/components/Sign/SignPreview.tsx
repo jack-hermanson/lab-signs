@@ -102,7 +102,8 @@ export const SignPreview: React.FC = () => {
                 fontSize: subheadingFontSize,
                 textAlign: logoPlacement,
                 marginBottom: 0,
-                marginTop: "1rem"
+                marginTop: "1rem",
+                fontWeight: 600
             }}>{subheading}</h3>
         );
     }
@@ -112,7 +113,8 @@ export const SignPreview: React.FC = () => {
             <p style={{
                 fontSize: "2rem",
                 textAlign: logoPlacement,
-                marginTop: "1rem"
+                marginTop: "1rem",
+                marginBottom: `${imagePlacement === "bottom" ? "3rem" : ""}`
             }}>
                 {bodyParagraph}
             </p>
