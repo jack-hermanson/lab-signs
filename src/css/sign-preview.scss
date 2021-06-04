@@ -1,3 +1,31 @@
-#sign-preview {
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "variables";
 
+@font-face {
+  font-family: "Klavika";
+  src: url("./fonts/Klavika Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Klavika";
+  src: url("./fonts/Klavika Medium.otf") format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Klavika";
+  src: url("./fonts/Klavika Bold.otf") format("opentype");
+  font-weight: 700;
+}
+
+#sign-preview {
+  box-sizing: border-box;
+  padding-left: 0.5in;
+  padding-right: 0.5in;
+  border: 1px solid $gray-400;
+  color: $green;
+  border-radius: 2px;
+  font-family: "Klavika", sans-serif;
 }

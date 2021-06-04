@@ -37,8 +37,8 @@ export const Heading: React.FC = () => {
             <Col>
                 <FontSizeInput
                     id="title-font-size-input"
-                    min={18}
-                    max={36}
+                    min={48}
+                    max={100}
                     value={titleFontSize}
                     set={size => setTitleFontSize(size)}
                 />

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"sign-preview.css"}
+{"version":3,"sourceRoot":"","sources":["sign-preview.scss","_variables.scss"],"names":[],"mappings":"AAKA;EACE;EACA;;AAGF;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA,OC3BM;ED4BN;EACA","file":"sign-preview.css"}

@@ -54,7 +54,7 @@ export const store = createStore<StoreModel>({
         state.title = payload;
     }),
 
-    titleFontSize: 27,
+    titleFontSize: 72,
     setTitleFontSize: action((state, payload) => {
         state.titleFontSize = payload;
     }),
@@ -74,7 +74,7 @@ export const store = createStore<StoreModel>({
         state.customImageUrl = payload;
     }),
 
-    imageSize: 50,
+    imageSize: 32,
     setImageSize: action((state, payload) => {
         state.imageSize = payload;
     }),
