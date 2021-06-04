@@ -47,8 +47,8 @@ export const Body: React.FC = () => {
             <Col>
                 <FontSizeInput
                     id="subheading-font-size-input"
-                    min={14}
-                    max={24}
+                    min={36}
+                    max={64}
                     value={subheadingFontSize}
                     set={setSubheadingFontSize}
                 />

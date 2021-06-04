@@ -16,6 +16,9 @@ export const SignPreview: React.FC = () => {
     const imageSize = useStoreState(state => state.imageSize);
     const imagePlacement = useStoreState(state => state.imagePlacement);
 
+    const subheading = useStoreState(state => state.subheading);
+    const subheadingFontSize = useStoreState(state => state.subheadingFontSize);
+
     return (
         <div style={{marginTop: "1em", marginRight: "1em"}}>
             <div id="sign-preview" style={{
@@ -26,7 +29,10 @@ export const SignPreview: React.FC = () => {
                 {imagePlacement === "top" && (
                     renderImage()
                 )}
-
+                {renderSubheading()}
+                {imagePlacement === "bottom" && (
+                    renderImage()
+                )}
             </div>
         </div>
     );
@@ -59,6 +65,15 @@ export const SignPreview: React.FC = () => {
                     }} icon={selectedIcon}/>
                 )}
             </div>
+        );
+    }
+
+    function renderSubheading() {
+        return (
+            <h3 style={{
+                fontSize: subheadingFontSize,
+                textAlign: logoPlacement
+            }} >{subheading}</h3>
         )
     }
 }

@@ -84,7 +84,7 @@ export const store = createStore<StoreModel>({
         state.subheading = payload;
     }),
 
-    subheadingFontSize: 19,
+    subheadingFontSize: 42,
     setSubheadingFontSize: action((state, payload) => {
         state.subheadingFontSize = payload;
     }),
