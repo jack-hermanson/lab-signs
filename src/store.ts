@@ -27,6 +27,12 @@ interface StoreModel {
 
     imageSize: number;
     setImageSize: Action<StoreModel, number>;
+
+    subheading: string;
+    setSubheading: Action<StoreModel, string>;
+
+    subheadingFontSize: number;
+    setSubheadingFontSize: Action<StoreModel, number>;
 }
 
 export const store = createStore<StoreModel>({
@@ -69,6 +75,17 @@ export const store = createStore<StoreModel>({
     setImageSize: action((state, payload) => {
         state.imageSize = payload;
     }),
+
+    subheading: "",
+    setSubheading: action((state, payload) => {
+        state.subheading = payload;
+    }),
+
+    subheadingFontSize: 19,
+    setSubheadingFontSize: action((state, payload) => {
+        state.subheadingFontSize = payload;
+    })
+
 });
 
 const typedHooks = createTypedHooks<StoreModel>();
