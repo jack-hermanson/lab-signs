@@ -36,62 +36,92 @@ interface StoreModel {
 
     bodyParagraph: string;
     setBodyParagraph: Action<StoreModel, string>;
+
+    resetForm: Action<StoreModel>;
+}
+
+const defaults = {
+    logoPlacement: "center" as LogoPlacement,
+    imagePlacement: "top" as ImagePlacement,
+    title: "",
+    titleFontSize: 72,
+    useCustomImage: false,
+    customImageUrl: "",
+    selectedIcon: undefined,
+    imageSize: 35,
+    subheading: "",
+    subheadingFontSize: 42,
+    bodyParagraph: ""
 }
 
 export const store = createStore<StoreModel>({
-    logoPlacement: "center",
+    logoPlacement: defaults.logoPlacement,
     setLogoPlacement: action((state, payload) => {
         state.logoPlacement = payload;
     }),
 
-    imagePlacement: "top",
+    imagePlacement: defaults.imagePlacement,
     setImagePlacement: action((state, payload) => {
         state.imagePlacement = payload;
     }),
 
-    title: "",
+    title: defaults.title,
     setTitle: action((state, payload) => {
         state.title = payload;
     }),
 
-    titleFontSize: 72,
+    titleFontSize: defaults.titleFontSize,
     setTitleFontSize: action((state, payload) => {
         state.titleFontSize = payload;
     }),
 
-    useCustomImage: false,
+    useCustomImage: defaults.useCustomImage,
     setUseCustomImage: action((state, payload) => {
         state.useCustomImage = payload;
     }),
 
-    selectedIcon: undefined,
+    selectedIcon: defaults.selectedIcon,
     setSelectedIcon: action((state, payload) => {
         state.selectedIcon = payload;
     }),
 
-    customImageUrl: "",
+    customImageUrl: defaults.customImageUrl,
     setCustomImageUrl: action((state, payload) => {
         state.customImageUrl = payload;
     }),
 
-    imageSize: 35,
+    imageSize: defaults.imageSize,
     setImageSize: action((state, payload) => {
         state.imageSize = payload;
     }),
 
-    subheading: "",
+    subheading: defaults.subheading,
     setSubheading: action((state, payload) => {
         state.subheading = payload;
     }),
 
-    subheadingFontSize: 42,
+    subheadingFontSize: defaults.subheadingFontSize,
     setSubheadingFontSize: action((state, payload) => {
         state.subheadingFontSize = payload;
     }),
 
-    bodyParagraph: "",
+    bodyParagraph: defaults.bodyParagraph,
     setBodyParagraph: action((state, payload) => {
         state.bodyParagraph = payload;
+    }),
+
+    resetForm: action(state => {
+        state.logoPlacement = defaults.logoPlacement;
+        state.imagePlacement = defaults.imagePlacement;
+        state.title = defaults.title;
+        state.titleFontSize = defaults.titleFontSize;
+        state.selectedIcon = defaults.selectedIcon;
+        state.imageSize = defaults.imageSize;
+        state.useCustomImage = defaults.useCustomImage;
+        state.customImageUrl = defaults.customImageUrl;
+        state.subheading = defaults.subheading;
+        state.subheadingFontSize = defaults.subheadingFontSize;
+        state.bodyParagraph = defaults.bodyParagraph;
     })
 
 });

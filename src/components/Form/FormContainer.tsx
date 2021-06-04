@@ -5,8 +5,12 @@ import {Orientation} from "./Orientation";
 import {Heading} from "./Heading";
 import {Image} from "./Image";
 import {Body} from "./Body";
+import {useStoreActions} from "../../store";
 
 export const FormContainer: React.FC = () => {
+
+    const reset = useStoreActions(actions => actions.resetForm);
+
     return (
         <div id="form">
             <div className="sticky-top pt-3">
@@ -18,7 +22,7 @@ export const FormContainer: React.FC = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <form>
+                            <form onReset={() => reset()}>
                                 <Orientation />
                                 <Heading />
                                 <Image />

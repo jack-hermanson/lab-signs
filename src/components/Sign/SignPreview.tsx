@@ -29,7 +29,7 @@ export const SignPreview: React.FC = () => {
                 width: "8.5in",
                 height: "11in",
                 display: "grid",
-                gridTemplateColumns: `auto ${logoPlacement === "left" && "1fr"}`
+                gridTemplateColumns: `auto ${logoPlacement === "left" ? "1fr": ""}`
             }}>
                 {renderLeftLogo()}
                 <div style={{
@@ -72,16 +72,16 @@ export const SignPreview: React.FC = () => {
                 justifyContent: logoPlacement,
                 marginBottom: "2rem"
             }}>
-                {useCustomImage ? (
+                {useCustomImage && customImageUrl.length ? (
                     <img
-                        alt="Custom"
+                        alt="Missing or invalid URL"
                         src={customImageUrl}
                         style={{
                             width: `${imageSize}%`,
                             height: `${imageSize}%`,
                         }}
                     />
-                ) : selectedIcon && (
+                ) : selectedIcon && !useCustomImage && (
                     <FA
                         style={{
                             width: `${imageSize}%`,
