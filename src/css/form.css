@@ -1,4 +1,8 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Factoria Book";
+  src: url("./fonts/Factoria-Book.woff");
+}
 #form {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /*!
@@ -28,11 +32,16 @@
   /* rtl:begin:remove */
   /* rtl:end:remove */
 }
+#form h1, #form .h1, #form h2, #form .h2, #form h3, #form .h3, #form h4, #form .h4, #form h5, #form .h5 {
+  font-family: "Factoria Book", sans-serif;
+  font-weight: 500;
+}
 #form ul.icon-options {
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-flow: row;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   border: 1px solid #ced4da;
 }
 #form ul.icon-options li {
@@ -41,14 +50,24 @@
   padding: 0.25rem 0.75rem;
   font-size: large;
   border-left: 1px solid #ced4da;
+  line-height: 1;
+  border-bottom: 1px solid #ced4da;
 }
-#form ul.icon-options li:first-of-type {
+#form ul.icon-options li:nth-of-type(1), #form ul.icon-options li:nth-of-type(9) {
   border-left: none;
 }
-#form ul.icon-options li:hover, #form ul.icon-options li .active {
-  cursor: pointer;
+#form ul.icon-options li:nth-of-type(9), #form ul.icon-options li:nth-of-type(10), #form ul.icon-options li:nth-of-type(11), #form ul.icon-options li:nth-of-type(12), #form ul.icon-options li:nth-of-type(13), #form ul.icon-options li:nth-of-type(14), #form ul.icon-options li:nth-of-type(15), #form ul.icon-options li:nth-of-type(16) {
+  border-bottom: none;
+}
+#form ul.icon-options li:hover, #form ul.icon-options li.active {
   background-color: #C8C372;
   color: white;
+}
+#form ul.icon-options li:active {
+  background-color: #1e4d2b;
+}
+#form ul.icon-options li:hover {
+  cursor: pointer;
 }
 #form .bottom-buttons .btn:not(last-of-type) {
   margin-right: 0.5rem;
