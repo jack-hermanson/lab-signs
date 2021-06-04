@@ -73,15 +73,21 @@ export const SignPreview: React.FC = () => {
                 marginBottom: "2rem"
             }}>
                 {useCustomImage ? (
-                    <img src={customImageUrl} style={{
-                        width: `${imageSize}%`,
-                        height: `${imageSize}%`,
-                    }}/>
+                    <img
+                        alt="Custom"
+                        src={customImageUrl}
+                        style={{
+                            width: `${imageSize}%`,
+                            height: `${imageSize}%`,
+                        }}
+                    />
                 ) : selectedIcon && (
-                    <FA style={{
-                        width: `${imageSize}%`,
-                        height: "auto",
-                    }} icon={selectedIcon}/>
+                    <FA
+                        style={{
+                            width: `${imageSize}%`,
+                            height: "auto",
+                        }} icon={selectedIcon}
+                    />
                 )}
             </div>
         );
@@ -114,7 +120,7 @@ export const SignPreview: React.FC = () => {
         if (logoPlacement === "center") {
             return (
                 <div className="bottom-logo">
-                    <img src={bottomLogo}/>
+                    <img alt="logo" src={bottomLogo}/>
                 </div>
             );
         }
@@ -125,6 +131,7 @@ export const SignPreview: React.FC = () => {
             return (
                 <div className="left-logo">
                     <img
+                        alt="logo"
                         src={leftLogo}
                         style={{
                             height: "100%"

@@ -1,4 +1,8 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Factoria Book";
+  src: url("./fonts/Factoria-Book.woff");
+}
 #form {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /*!
@@ -27,6 +31,10 @@
   } */
   /* rtl:begin:remove */
   /* rtl:end:remove */
+}
+#form h1, #form .h1, #form h2, #form .h2, #form h3, #form .h3, #form h4, #form .h4, #form h5, #form .h5 {
+  font-family: "Factoria Book", sans-serif;
+  font-weight: 500;
 }
 #form ul.icon-options {
   padding: 0;
