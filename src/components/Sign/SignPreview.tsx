@@ -91,7 +91,8 @@ export const SignPreview: React.FC = () => {
             <h3 style={{
                 fontSize: subheadingFontSize,
                 textAlign: logoPlacement,
-                marginBottom: 0
+                marginBottom: 0,
+                marginTop: "1rem"
             }}>{subheading}</h3>
         );
     }
