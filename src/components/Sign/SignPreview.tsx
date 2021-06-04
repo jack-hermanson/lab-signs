@@ -28,7 +28,8 @@ export const SignPreview: React.FC = () => {
                 width: "8.5in",
                 height: "11in",
                 display: "flex",
-                flexFlow: "column"
+                flexFlow: "column",
+
             }}>
                 {renderTitle()}
                 {imagePlacement === "top" && (
@@ -58,17 +59,18 @@ export const SignPreview: React.FC = () => {
         return (
             <div style={{
                 display: "flex",
-                justifyContent: logoPlacement
+                justifyContent: logoPlacement,
+                marginBottom: "2rem"
             }}>
                 {useCustomImage ? (
                     <img src={customImageUrl} style={{
                         width: `${imageSize}%`,
-                        height: `${imageSize}%`
+                        height: `${imageSize}%`,
                     }}/>
                 ) : selectedIcon && (
                     <FA style={{
                         width: `${imageSize}%`,
-                        height: `${imageSize}%`
+                        height: "auto",
                     }} icon={selectedIcon}/>
                 )}
             </div>
@@ -80,7 +82,8 @@ export const SignPreview: React.FC = () => {
             <h3 style={{
                 fontSize: subheadingFontSize,
                 textAlign: logoPlacement,
-                marginBottom: 0
+                marginBottom: 0,
+                marginTop: 0
             }}>{subheading}</h3>
         );
     }
@@ -102,7 +105,7 @@ export const SignPreview: React.FC = () => {
             return (
 
                 <div className="bottom-logo">
-                    <img src={bottomLogo} />
+                    <img src={bottomLogo}/>
                 </div>
 
             )

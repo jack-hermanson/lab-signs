@@ -74,7 +74,7 @@ export const store = createStore<StoreModel>({
         state.customImageUrl = payload;
     }),
 
-    imageSize: 32,
+    imageSize: 35,
     setImageSize: action((state, payload) => {
         state.imageSize = payload;
     }),
