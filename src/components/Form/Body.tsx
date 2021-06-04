@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import {Col, FormGroup, Input, Label, Row} from "reactstrap";
 import {FormSectionTitle} from "./FormSectionTitle";
 import {FontSizeInput} from "./FontSizeInput";
 import {useStoreActions, useStoreState} from "../../store";
+import ReactMde from "react-mde";
+import "react-mde/lib/styles/css/react-mde-all.css";
+import {converter} from "../../utils/markdown";
 
 export const Body: React.FC = () => {
 
@@ -14,6 +17,8 @@ export const Body: React.FC = () => {
 
     const bodyParagraph = useStoreState(state => state.bodyParagraph);
     const setBodyParagraph = useStoreActions(actions => actions.setBodyParagraph);
+
+    const [editorTab, setEditorTab] = useState<"write" | "preview">("write");
 
     return (
         <FormGroup>
@@ -60,15 +65,17 @@ export const Body: React.FC = () => {
     }
 
     function renderParagraphInput() {
-        const id = "paragraph-input"
-        return (
+                return (
             <Col>
-                <Label for={id} className="form-label">Paragraph</Label>
-                <Input
+                <Label className="form-label">Paragraph</Label>
+                <ReactMde
                     value={bodyParagraph}
-                    id={id}
-                    type="textarea"
-                    onChange={e => setBodyParagraph(e.target.value)}
+                    onChange={txt => setBodyParagraph(txt)}
+                    selectedTab={editorTab}
+                    onTabChange={setEditorTab}
+                    generateMarkdownPreview={markdown => {
+                        return Promise.resolve(converter.makeHtml(markdown));
+                    }}
                 />
             </Col>
         );

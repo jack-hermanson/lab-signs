@@ -4,6 +4,8 @@ import {useStoreState} from "../../store";
 import {FontAwesomeIcon as FA} from "@fortawesome/react-fontawesome";
 import bottomLogo from "../../images/center-logo.svg";
 import leftLogo from "../../images/left-logo.svg";
+import {converter} from "../../utils/markdown";
+
 
 export const SignPreview: React.FC = () => {
 
@@ -69,31 +71,34 @@ export const SignPreview: React.FC = () => {
     }
 
     function renderImage() {
-        return (
-            <div style={{
-                display: "flex",
-                justifyContent: logoPlacement,
-                marginBottom: "2rem"
-            }}>
-                {useCustomImage && customImageUrl.length ? (
-                    <img
-                        alt="Missing or invalid URL"
-                        src={customImageUrl}
-                        style={{
-                            width: `${imageSize}%`,
-                            height: `${imageSize}%`,
-                        }}
-                    />
-                ) : selectedIcon && !useCustomImage && (
-                    <FA
-                        style={{
-                            width: `${imageSize}%`,
-                            height: "auto",
-                        }} icon={selectedIcon}
-                    />
-                )}
-            </div>
-        );
+        if (selectedIcon || (useCustomImage && customImageUrl.length)) {
+            return (
+                <div style={{
+                    display: "flex",
+                    justifyContent: logoPlacement,
+                    marginBottom: "2rem"
+                }}>
+                    {useCustomImage && customImageUrl.length ? (
+                        <img
+                            alt="Missing or invalid URL"
+                            src={customImageUrl}
+                            style={{
+                                width: `${imageSize}%`,
+                                height: `${imageSize}%`,
+                            }}
+                        />
+                    ) : selectedIcon && !useCustomImage && (
+                        <FA
+                            style={{
+                                width: `${imageSize}%`,
+                                height: "auto",
+                            }} icon={selectedIcon}
+                        />
+                    )}
+                </div>
+            );
+        }
+
     }
 
     function renderSubheading() {
@@ -110,14 +115,13 @@ export const SignPreview: React.FC = () => {
 
     function renderBodyParagraph() {
         return (
-            <p style={{
+            <div dangerouslySetInnerHTML={{__html: converter.makeHtml(bodyParagraph)}} style={{
                 fontSize: "2rem",
                 textAlign: logoPlacement,
                 marginTop: "1rem",
                 marginBottom: `${imagePlacement === "bottom" ? "3rem" : ""}`
             }}>
-                {bodyParagraph}
-            </p>
+            </div>
         );
     }
 
