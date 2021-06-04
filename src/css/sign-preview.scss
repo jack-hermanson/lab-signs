@@ -23,13 +23,19 @@
 @font-face {
   font-family: "Proxima Nova";
   src: url("./fonts/ProximaNova-Bold-webfont.woff2");
-  font-weight: bold;
+  font-weight: 700;
 }
 
 @font-face {
   font-family: "Proxima Nova";
   src: url("./fonts/ProximaNova-Reg-webfont.woff2");
-  font-weight: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/Proxima Nova Semibold.otf") format("opentype");
+  font-weight: 600;
 }
 
 #sign-preview {
@@ -54,4 +60,25 @@
   margin-bottom: auto;
   margin-right: 0.5in;
   height: 90%;
+}
+
+.college-name {
+  margin-top: auto;
+  margin-bottom: 0.5in;
+  .chhs-text {
+    font-family: "Proxima Nova";
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .csu-text {
+    margin-top: 0.6rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-family: "Klavika";
+    font-weight: bold;
+  }
 }

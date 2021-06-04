@@ -47,6 +47,7 @@ export const SignPreview: React.FC = () => {
                         renderImage()
                     )}
                     {renderBottomLogo()}
+                    {renderCollegeName()}
                 </div>
 
             </div>
@@ -112,12 +113,10 @@ export const SignPreview: React.FC = () => {
     function renderBottomLogo() {
         if (logoPlacement === "center") {
             return (
-
                 <div className="bottom-logo">
                     <img src={bottomLogo}/>
                 </div>
-
-            )
+            );
         }
     }
 
@@ -131,6 +130,17 @@ export const SignPreview: React.FC = () => {
                             height: "100%"
                         }}
                     />
+                </div>
+            )
+        }
+    }
+
+    function renderCollegeName() {
+        if (logoPlacement === "left") {
+            return (
+                <div className="college-name">
+                    <h1 className="chhs-text">College of Health<br/>and Human Sciences</h1>
+                    <h2 className="csu-text">Colorado State University</h2>
                 </div>
             )
         }
