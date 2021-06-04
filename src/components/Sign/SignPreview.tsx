@@ -3,6 +3,7 @@ import "../../css/sign-preview.css";
 import {useStoreState} from "../../store";
 import {FontAwesomeIcon as FA} from "@fortawesome/react-fontawesome";
 import bottomLogo from "../../images/center-logo.svg";
+import leftLogo from "../../images/left-logo.svg";
 
 export const SignPreview: React.FC = () => {
 
@@ -27,20 +28,27 @@ export const SignPreview: React.FC = () => {
             <div id="sign-preview" style={{
                 width: "8.5in",
                 height: "11in",
-                display: "flex",
-                flexFlow: "column",
-
+                display: "grid",
+                gridTemplateColumns: `auto ${logoPlacement === "left" && "1fr"}`
             }}>
-                {renderTitle()}
-                {imagePlacement === "top" && (
-                    renderImage()
-                )}
-                {renderSubheading()}
-                {renderBodyParagraph()}
-                {imagePlacement === "bottom" && (
-                    renderImage()
-                )}
-                {renderBottomLogo()}
+                {renderLeftLogo()}
+                <div style={{
+                    display: "flex",
+                    flexFlow: "column",
+                    height: "100%"
+                }}>
+                    {renderTitle()}
+                    {imagePlacement === "top" && (
+                        renderImage()
+                    )}
+                    {renderSubheading()}
+                    {renderBodyParagraph()}
+                    {imagePlacement === "bottom" && (
+                        renderImage()
+                    )}
+                    {renderBottomLogo()}
+                </div>
+
             </div>
         </div>
     );
@@ -50,7 +58,8 @@ export const SignPreview: React.FC = () => {
             <h1 style={{
                 textAlign: logoPlacement,
                 fontSize: titleFontSize,
-                marginBottom: "1.6rem"
+                marginBottom: "1.6rem",
+                marginTop: "0.5in"
             }}>{title}</h1>
         );
     }
@@ -82,8 +91,7 @@ export const SignPreview: React.FC = () => {
             <h3 style={{
                 fontSize: subheadingFontSize,
                 textAlign: logoPlacement,
-                marginBottom: 0,
-                marginTop: 0
+                marginBottom: 0
             }}>{subheading}</h3>
         );
     }
@@ -108,6 +116,21 @@ export const SignPreview: React.FC = () => {
                     <img src={bottomLogo}/>
                 </div>
 
+            )
+        }
+    }
+
+    function renderLeftLogo() {
+        if (logoPlacement === "left") {
+            return (
+                <div className="left-logo">
+                    <img
+                        src={leftLogo}
+                        style={{
+                            height: "100%"
+                        }}
+                    />
+                </div>
             )
         }
     }
