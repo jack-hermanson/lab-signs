@@ -12,6 +12,16 @@
   src: url("./fonts/Klavika Bold.otf") format("opentype");
   font-weight: 700;
 }
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Bold-webfont.woff2");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("./fonts/ProximaNova-Reg-webfont.woff2");
+  font-weight: normal;
+}
 #sign-preview {
   box-sizing: border-box;
   padding-left: 0.5in;
@@ -20,6 +30,13 @@
   color: #1e4d2b;
   border-radius: 2px;
   font-family: "Klavika", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.bottom-logo {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 0.45in;
 }
 
 /*# sourceMappingURL=sign-preview.css.map */

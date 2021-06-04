@@ -2,6 +2,7 @@ import React from "react";
 import "../../css/sign-preview.css";
 import {useStoreState} from "../../store";
 import {FontAwesomeIcon as FA} from "@fortawesome/react-fontawesome";
+import bottomLogo from "../../images/center-logo.svg";
 
 export const SignPreview: React.FC = () => {
 
@@ -19,20 +20,26 @@ export const SignPreview: React.FC = () => {
     const subheading = useStoreState(state => state.subheading);
     const subheadingFontSize = useStoreState(state => state.subheadingFontSize);
 
+    const bodyParagraph = useStoreState(state => state.bodyParagraph);
+
     return (
         <div style={{marginTop: "1em", marginRight: "1em"}}>
             <div id="sign-preview" style={{
                 width: "8.5in",
-                height: "11in"
+                height: "11in",
+                display: "flex",
+                flexFlow: "column"
             }}>
                 {renderTitle()}
                 {imagePlacement === "top" && (
                     renderImage()
                 )}
                 {renderSubheading()}
+                {renderBodyParagraph()}
                 {imagePlacement === "bottom" && (
                     renderImage()
                 )}
+                {renderBottomLogo()}
             </div>
         </div>
     );
@@ -57,7 +64,7 @@ export const SignPreview: React.FC = () => {
                     <img src={customImageUrl} style={{
                         width: `${imageSize}%`,
                         height: `${imageSize}%`
-                    }} />
+                    }}/>
                 ) : selectedIcon && (
                     <FA style={{
                         width: `${imageSize}%`,
@@ -72,8 +79,33 @@ export const SignPreview: React.FC = () => {
         return (
             <h3 style={{
                 fontSize: subheadingFontSize,
-                textAlign: logoPlacement
-            }} >{subheading}</h3>
-        )
+                textAlign: logoPlacement,
+                marginBottom: 0
+            }}>{subheading}</h3>
+        );
+    }
+
+    function renderBodyParagraph() {
+        return (
+            <p style={{
+                fontSize: "2rem",
+                textAlign: logoPlacement,
+                marginTop: "1rem"
+            }}>
+                {bodyParagraph}
+            </p>
+        );
+    }
+
+    function renderBottomLogo() {
+        if (logoPlacement === "center") {
+            return (
+
+                <div className="bottom-logo">
+                    <img src={bottomLogo} />
+                </div>
+
+            )
+        }
     }
 }
