@@ -71,31 +71,34 @@ export const SignPreview: React.FC = () => {
     }
 
     function renderImage() {
-        return (
-            <div style={{
-                display: "flex",
-                justifyContent: logoPlacement,
-                marginBottom: "2rem"
-            }}>
-                {useCustomImage && customImageUrl.length ? (
-                    <img
-                        alt="Missing or invalid URL"
-                        src={customImageUrl}
-                        style={{
-                            width: `${imageSize}%`,
-                            height: `${imageSize}%`,
-                        }}
-                    />
-                ) : selectedIcon && !useCustomImage && (
-                    <FA
-                        style={{
-                            width: `${imageSize}%`,
-                            height: "auto",
-                        }} icon={selectedIcon}
-                    />
-                )}
-            </div>
-        );
+        if (selectedIcon || (useCustomImage && customImageUrl.length)) {
+            return (
+                <div style={{
+                    display: "flex",
+                    justifyContent: logoPlacement,
+                    marginBottom: "2rem"
+                }}>
+                    {useCustomImage && customImageUrl.length ? (
+                        <img
+                            alt="Missing or invalid URL"
+                            src={customImageUrl}
+                            style={{
+                                width: `${imageSize}%`,
+                                height: `${imageSize}%`,
+                            }}
+                        />
+                    ) : selectedIcon && !useCustomImage && (
+                        <FA
+                            style={{
+                                width: `${imageSize}%`,
+                                height: "auto",
+                            }} icon={selectedIcon}
+                        />
+                    )}
+                </div>
+            );
+        }
+
     }
 
     function renderSubheading() {
