@@ -73,6 +73,7 @@ export const Body: React.FC = () => {
                     onChange={txt => setBodyParagraph(txt)}
                     selectedTab={editorTab}
                     onTabChange={setEditorTab}
+                    maxEditorHeight={100}
                     generateMarkdownPreview={markdown => {
                         return Promise.resolve(converter.makeHtml(markdown));
                     }}

@@ -35,7 +35,7 @@ export const FormContainer: React.FC = () => {
                                 <Heading/>
                                 <Image/>
                                 <Body/>
-                                <Row className="mt-4">
+                                <Row className="mt-4 mb-1">
                                     <Col>
                                         <div className="bottom-buttons">
                                             <Button type="submit" color="primary">Print to PDF</Button>
