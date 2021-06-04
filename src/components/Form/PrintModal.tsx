@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback} from "react";
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import noHeadersFooters from "../../images/no_headers_footers.png";

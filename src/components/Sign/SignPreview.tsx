@@ -4,6 +4,8 @@ import {useStoreState} from "../../store";
 import {FontAwesomeIcon as FA} from "@fortawesome/react-fontawesome";
 import bottomLogo from "../../images/center-logo.svg";
 import leftLogo from "../../images/left-logo.svg";
+import {converter} from "../../utils/markdown";
+
 
 export const SignPreview: React.FC = () => {
 
@@ -110,14 +112,13 @@ export const SignPreview: React.FC = () => {
 
     function renderBodyParagraph() {
         return (
-            <p style={{
+            <div dangerouslySetInnerHTML={{__html: converter.makeHtml(bodyParagraph)}} style={{
                 fontSize: "2rem",
                 textAlign: logoPlacement,
                 marginTop: "1rem",
                 marginBottom: `${imagePlacement === "bottom" ? "3rem" : ""}`
             }}>
-                {bodyParagraph}
-            </p>
+            </div>
         );
     }
 
