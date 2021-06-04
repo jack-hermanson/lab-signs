@@ -6,4 +6,9 @@ body {
   display: grid;
   grid-template-columns: 1fr auto;
   column-gap: 1em;
+  @media print {
+    #form {
+      display: none;
+    }
+  }
 }

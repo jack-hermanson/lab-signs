@@ -24,12 +24,12 @@ export const SignPreview: React.FC = () => {
     const bodyParagraph = useStoreState(state => state.bodyParagraph);
 
     return (
-        <div style={{marginTop: "1em", marginRight: "1em"}}>
+        <div className="sign-container">
             <div id="sign-preview" style={{
                 width: "8.5in",
                 height: "11in",
                 display: "grid",
-                gridTemplateColumns: `auto ${logoPlacement === "left" ? "1fr": ""}`
+                gridTemplateColumns: `auto ${logoPlacement === "left" ? "1fr" : ""}`
             }}>
                 {renderLeftLogo()}
                 <div style={{
@@ -56,12 +56,15 @@ export const SignPreview: React.FC = () => {
 
     function renderTitle() {
         return (
-            <h1 style={{
-                textAlign: logoPlacement,
-                fontSize: titleFontSize,
-                marginBottom: "1.6rem",
-                marginTop: "0.5in"
-            }}>{title}</h1>
+            <h1
+                className="sign-title"
+                style={{
+                    textAlign: logoPlacement,
+                    fontSize: titleFontSize
+                }}
+            >
+                {title}
+            </h1>
         );
     }
 

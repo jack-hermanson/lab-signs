@@ -38,11 +38,24 @@
   font-weight: 600;
 }
 
+.sign-container {
+  margin-right: 1rem;
+  margin-top: 1rem;
+  @media print {
+    margin: 0;
+  }
+}
+
 #sign-preview {
   box-sizing: border-box;
   padding-left: 0.5in;
   padding-right: 0.5in;
   border: 1px solid $gray-400;
+  @media print {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
   color: $green;
   border-radius: 2px;
   font-family: "Klavika", sans-serif;
@@ -53,6 +66,9 @@
   width: 100%;
   margin-top: auto;
   margin-bottom: 0.40in;
+  @media print {
+    margin-bottom: 0;
+  }
 }
 
 .left-logo {
@@ -60,11 +76,17 @@
   margin-bottom: auto;
   margin-right: 0.5in;
   height: 90%;
+  @media print {
+    height: 98%;
+  }
 }
 
 .college-name {
   margin-top: auto;
   margin-bottom: 0.5in;
+  @media print {
+    margin-bottom: 10px;
+  }
   .chhs-text {
     font-family: "Proxima Nova";
     text-transform: uppercase;
@@ -81,4 +103,16 @@
     font-family: "Klavika";
     font-weight: bold;
   }
+}
+
+.sign-title {
+  margin-bottom: 1.6rem;
+  margin-top: 0.5in;
+  @media print {
+    margin-top: 0;
+  }
+}
+
+@page {
+  margin: 0;
 }

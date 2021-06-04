@@ -7,5 +7,10 @@ body {
   grid-template-columns: 1fr auto;
   column-gap: 1em;
 }
+@media print {
+  .main-container #form {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
