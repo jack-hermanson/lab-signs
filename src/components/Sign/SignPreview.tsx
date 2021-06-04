@@ -47,11 +47,16 @@ export const SignPreview: React.FC = () => {
                 display: "flex",
                 justifyContent: logoPlacement
             }}>
-                {selectedIcon && (
+                {useCustomImage ? (
+                    <img src={customImageUrl} style={{
+                        width: `${imageSize}%`,
+                        height: `${imageSize}%`
+                    }} />
+                ) : selectedIcon && (
                     <FA style={{
                         width: `${imageSize}%`,
                         height: `${imageSize}%`
-                    }} icon={selectedIcon} />
+                    }} icon={selectedIcon}/>
                 )}
             </div>
         )
