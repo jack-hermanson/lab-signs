@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Factoria Book";
+    src: url("./fonts/Factoria-Book.woff");
+}
+
+#form {
+    @import "variables";
+    @import "../../node_modules/bootstrap/scss/functions";
+    @import "../../node_modules/bootstrap/scss/variables";
+    @import "../../node_modules/bootstrap/scss/mixins";
+
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+        "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Factoria Book", sans-serif;
+        font-weight: 500;
+    }
+
+    ul.icon-options {
+        padding: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        border: 1px solid $gray-400;
+
+        li {
+            width: 100%;
+            text-align: center;
+            padding: 0.25rem 0.75rem;
+            font-size: large;
+            border-left: 1px solid $gray-400;
+            line-height: 1;
+            border-bottom: 1px solid $gray-400;
+
+            &:nth-of-type(1),
+            &:nth-of-type(9) {
+                border-left: none;
+            }
+
+            &:nth-of-type(9),
+            &:nth-of-type(10),
+            &:nth-of-type(11),
+            &:nth-of-type(12),
+            &:nth-of-type(13),
+            &:nth-of-type(14),
+            &:nth-of-type(15),
+            &:nth-of-type(16) {
+                border-bottom: none;
+            }
+
+            &:hover,
+            &.active {
+                background-color: $gold;
+                color: white;
+            }
+
+            &:active {
+                background-color: $primary;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .bottom-buttons {
+        .btn:not(last-of-type) {
+            margin-right: 0.5rem;
+        }
+    }
+
+    @import "../../node_modules/bootstrap/scss/bootstrap";
+}

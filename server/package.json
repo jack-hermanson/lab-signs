@@ -1,0 +1,8 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "The server side of the signs app",
+    "main": "index.js",
+    "license": "MIT",
+    "private": false
+}
